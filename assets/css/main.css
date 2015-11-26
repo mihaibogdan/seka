@@ -56,6 +56,10 @@ body{
 	padding-left:1.137em;
 }
 
+.search-wrapper input:focus{
+	border: 1px solid rgba(255,255,255,1);
+}
+
 .search-bar{
 	position: relative;
 	width:calc(100% - 372px);
@@ -74,6 +78,10 @@ body{
 	color: white;
 	font-weight:300;
 	padding-left:1em;
+}
+
+.search-bar input:focus{
+	border: 1px solid rgba(255,255,255,1);
 }
 
 .search-bar .search-icon{
