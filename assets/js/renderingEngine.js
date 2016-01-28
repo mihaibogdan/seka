@@ -36,7 +36,7 @@ var RenderingEngine = (function () {
 		return '' + 
 			'<div class="small-result smaller image">' + 
                 '<a href="' + url + '" target="_blank">' + 
-                    '<img src="' + url + '" width="100%">' + 
+                    '<img src="' + url + '" width="100%" height="100%">' + 
                 '</a>' +    
             '</div>';
 	}
