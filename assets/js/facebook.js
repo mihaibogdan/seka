@@ -12,7 +12,7 @@ var facebookSearch = (function () {
 		switch(type){
 			case 'web':
 				fields = 'about';
-				property = '';
+				property = 'about';
 				break;
 			case 'images':
 				fields = 'photos';
@@ -32,7 +32,8 @@ var facebookSearch = (function () {
 	};
 	var getResults = function(results){
 		index = 0;
-		totalResults = results.data.length;
+		if(results.data.length)
+			totalResults = results.data.length;
 		fbResults = [];
 		for(i in results.data){
 			url = 'https://graph.facebook.com/' + results.data[i].id + '/?fields=' + fields + '&access_token=' + config.access_token; 
@@ -41,8 +42,11 @@ var facebookSearch = (function () {
 	}
 	var getResult = function(result){
 		index++;
-		if(result[property])
+		if(result[property] && property !== 'about')
 			fbResults[fbResults.length] = result[property].data[0];
+		else
+			if(result[property] && property === 'about')
+				fbResults[fbResults.length] = result;
 		if(index == totalResults)
 			cb(fbResults);
 	}

@@ -13,29 +13,47 @@
       	<div class="header">
         <img src="assets/images/small_logo.png" alt="logo" class="logo">
         <div class="search-bar">
-        	<input type="text">
+        	<input type="text" id="search_keyword">
         	<img src="assets/images/arrow.png" alt="search" class="search-icon">	
         </div>
         <div class="filters">
-        	<img src="assets/images/search_engines.png" class="filter" alt="filter" />
-        	<img src="assets/images/category.png" class="filter" alt="filter" />
-        	<img src="assets/images/date.png" class="filter" alt="filter" />
-        	<img src="assets/images/mobile.png" class="filter" alt="filter" />
+            <a class="tooltips" href="#">
+                <img src="assets/images/search_engines.png" class="filter" alt="filter" />
+                <span>
+                    <ul>
+                        <li><input type="checkbox" id="google" checked /> <label for="google">Google</label></li>
+                        <li><input type="checkbox" id="duckduckgo" checked/> <label for="duckduckgo">DuckDuckGo</label></li>
+                        <li><input type="checkbox" id="facebook" checked/> <label for="facebook">Facebook</label></li>
+                    </ul>
+                </span>
+            </a>
+            <a class="tooltips category" href="#">
+                <img src="assets/images/category.png" class="filter" alt="filter" />
+                <span>
+                    <ul>
+                        <li><input type="radio" name="category" value="web" id="web"/> <label for="web">Web</label></li>
+                        <li><input type="radio" name="category" value="images" id="images" /> <label for="images">Images</label></li>
+                        <li><input type="radio" name="category" value="maps" id="maps" /> <label for="maps">Maps</label></li>
+                        <li><input type="radio" name="category" value="videos" id="videos" /> <label for="videos">Videos</label></li>
+                        <li><input type="radio" name="category" value="news" id="news" /> <label for="news">News</label></li>
+                    </ul>
+                </span>
+            </a>
         </div>
       </div>
       <div class="results">
         <div class="left-result">
         	<div class="big-result">
-        		<a class="title" target="_blank">Guatemala rises the production of guatemala in no more than 2 years of...</a>
+        		<a class="title" target="_blank"></a>
         		<div class="clear"></div>
                 <span class="details">2 hours ago - mobile friendly</span>
-        		<p class="text">Guatemala, a Central American country south of Mexico, is distinguished by its steep volcanoes, vast rainforests and ancient Mayan sites. The capital, Guatemala City, is home to the stately National Palace of Culture, institutions such as the National Museum of Archaeology and Ethnology, and the lively Zona Viva nightlife area. Antigua, west of the capital, contains cobblestone streets and preserved Spanish colonial buildings.</p>	
+        		<p class="text"></p>	
         	</div>
         </div>
         <div class="right-results">
         	<div class="small-result image">
                 <a href="" target="_blank">
-                    <img src="" width="100%" height="100%">
+                    <img src="">
                 </a>   
             </div>
         	<div class="small-result">
@@ -43,12 +61,11 @@
 				  width="100%"
 				  height="100%"
 				  frameborder="0" style="border:0"
-				  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAUCCoyp1Af_oTqlIPlR394c1IxX2Da_LU
-				    &q=Guatemala" id="map">
+				  src="" id="map">
 				</iframe>
 			</div>
         	<div class="small-result video">
-            <iframe src="https://www.facebook.com/video/embed?video_id=1664545597167789" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe src="" width="100%" height="100%" frameborder="0"></iframe>
         		<div class="overlay"></div>
         		<a href="" target="_blank">
                     <img src="assets/images/play_icon.png" class="play-video">
@@ -56,7 +73,7 @@
         	</div>
         	<div class="small-result news">
         		<div class="overlay"></div>
-        		<a class="news-title" target="_blank" href="#">No papaya for Guatemala - the minister says - BBC News</a>
+        		<a class="news-title" target="_blank" href="#"></a>
         	</div>
         </div>
       </div>
@@ -67,5 +84,7 @@
     <script type="text/javascript" src="assets/js/google.js"></script>
     <script type="text/javascript" src="assets/js/duckduckgo.js"></script>
     <script type="text/javascript" src="assets/js/facebook.js"></script>
+    <script type="text/javascript" src="assets/js/renderingEngine.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
+
   </body>

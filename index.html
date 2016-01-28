@@ -16,10 +16,18 @@
       <div class="search-wrapper">
         <img src="assets/images/symbol.png">
         <div class="clear"></div>
-        <input type="text"  placeholder="search something"/> 
+        <input type="text"  placeholder="search something" id="search_input"/> 
       </div>
       </div>
       
     </div>
+    <script type="text/javascript">
+        document.getElementById('search_input').addEventListener('keypress', search);
 
+        function search(e) {
+          if (e.keyCode == 13) {
+            window.location.href="results.html#" + document.getElementById('search_input').value;
+          }
+        }
+    </script>
   </body>
