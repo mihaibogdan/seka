@@ -136,7 +136,7 @@ body{
 	height: 100%;
 	background-color: white;
 	box-sizing: border-box;
-	padding:40px;
+	padding:80px;
 }
 
 .big-result .title{
@@ -217,4 +217,43 @@ body{
 	left:50%;
 	transform:translate(-50%, -50%);
 	cursor: pointer;
+}
+
+
+
+
+a.tooltips {
+  position: relative;
+  display: inline;
+}
+a.tooltips span {
+  position: absolute;
+  width:140px;
+  color: #000000;
+  background: #FFFFFF;
+
+  line-height: 32px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 3px;
+  box-shadow: 0px 3px 8px #121212;
+}
+a.tooltips span:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-bottom: 8px solid #FFFFFF;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+a:hover.tooltips span {
+  visibility: visible;
+  opacity: 1;
+  top: 30px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
 }
