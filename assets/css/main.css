@@ -140,6 +140,10 @@ body{
 	padding:90px;
 }
 
+.pocket-btn {
+	width: 100px;
+}
+
 .big-result .title{
 	float:left;
 	font-family: Roboto, sans-serif;
@@ -288,4 +292,32 @@ a.open.tooltips span {
   left: 50%;
   margin-left: -76px;
   z-index: 999;
+}
+
+@media only screen and (max-width: 760px) {
+    .results .left-result {
+        width: 100%;
+    	height: auto;
+    }
+
+    .results .left-result .big-result {
+    	padding: 40px 90px;
+    	height: auto;
+    }
+
+    .big-result .text {
+    	margin-top: 10px
+    }
+
+    .small-result.smaller {
+    	width:50%;
+    }
+
+    .map-result {
+    	width: 100%;
+    }
+
+    .search-wrapper input {
+    	width: 100%;
+    }
 }

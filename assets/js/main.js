@@ -100,7 +100,7 @@ var Main = (function () {
 			resultsDiv.innerHTML  = "";
 			if(ifGoogle) {
 				if(type == 'maps')
-					resultsDiv.innerHTML += RenderingEngine.map(keyword);
+					RenderingEngine.map(keyword, resultsDiv);
 				else
 					googleSearch.search(type, keyword, renderGoogleResults);
 			}
@@ -118,21 +118,21 @@ var Main = (function () {
 		for(i  in results.responseData.results) {
 			switch (type) {
 				case 'web':
-					resultsString += RenderingEngine.web(results.responseData.results[i].titleNoFormatting, results.responseData.results[i].content, results.responseData.results[i].url);
+					RenderingEngine.web(results.responseData.results[i].titleNoFormatting, results.responseData.results[i].content, results.responseData.results[i].url, resultsDiv);
 					break;
 				case 'news':
 					if(results.responseData.results[i].image)
 						imgUrl = results.responseData.results[i].image.url;
 					else
 						imgUrl = '';
-					resultsString += RenderingEngine.news(results.responseData.results[i].titleNoFormatting, imgUrl, results.responseData.results[i].unescapedUrl);
+					RenderingEngine.news(results.responseData.results[i].titleNoFormatting, imgUrl, results.responseData.results[i].unescapedUrl, resultsDiv);
 					break;
 				case 'map':
 
 			}
 			
 		}
-		resultsDiv.innerHTML += resultsString;
+		pocket.l();
 	}
 
 	var renderDuckDuckGoResults = function(results) {
@@ -142,16 +142,17 @@ var Main = (function () {
 				case 'web':
 					if(!results.RelatedTopics[i].Text)
 						results.RelatedTopics[i] = results.RelatedTopics[i].Topics[0];
-					resultsString += RenderingEngine.web(results.Heading, results.RelatedTopics[i].Text, results.RelatedTopics[i].FirstURL);
+					RenderingEngine.web(results.Heading, results.RelatedTopics[i].Text, results.RelatedTopics[i].FirstURL, resultsDiv);
 					break;
 				case 'images':
 				if(!results.RelatedTopics[i].Text)
 						results.RelatedTopics[i] = results.RelatedTopics[i].Topics[0];
-					resultsString += RenderingEngine.image(results.RelatedTopics[i].Icon.URL);
+					RenderingEngine.image(results.RelatedTopics[i].Icon.URL, resultsDiv);
 					break;
 			}
 		}
-		resultsDiv.innerHTML += resultsString;
+
+		pocket.l();
 	}
 
 	var renderFacebookResults = function(results) {
@@ -160,16 +161,15 @@ var Main = (function () {
 			if(i<10){
 				switch (type) {
 					case 'videos':
-						resultsString += RenderingEngine.video('https://www.facebook.com/video/embed?video_id=' + results[i].id, 'https://www.facebook.com/video/embed?video_id=' + results[0].id);
+						RenderingEngine.video('https://www.facebook.com/video/embed?video_id=' + results[i].id, 'https://www.facebook.com/video/embed?video_id=' + results[i].id, resultsDiv);
 						break;
 					case 'images':
-						resultsString += RenderingEngine.image('https://graph.facebook.com/' + results[i].id + '/picture');
+						RenderingEngine.image('https://graph.facebook.com/' + results[i].id + '/picture', resultsDiv);
 						break;
 				}
 			}
 			
 		}
-		resultsDiv.innerHTML += resultsString;
 	}
 
 	return main;
