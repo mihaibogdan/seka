@@ -2,7 +2,7 @@ window.onload = function() {
 	Main.init();
 	if(window.location.hash)
 		Main.completeSearch(window.location.hash.substr(1));
-	
+
 }
 
 var Main = (function () {
@@ -20,7 +20,15 @@ var Main = (function () {
 			bigResult.querySelector('.title').innerHTML = results.responseData.results[0].titleNoFormatting;
 			bigResult.querySelector('.title').href = results.responseData.results[0].url;
 			bigResult.querySelector('.text').innerHTML = results.responseData.results[0].content;
+			bigResult.querySelector('.pocket-btn').setAttribute('data-save-url', results.responseData.results[0].url);
 			document.querySelector('.results').style.display = "block";
+			var webResults = document.querySelector('.webResults');
+
+			for(var i = 1; i < results.responseData.results.length && i < 10; i++) {
+				RenderingEngine.web(results.responseData.results[i].titleNoFormatting, results.responseData.results[i].content, results.responseData.results[i].url, webResults);
+			}
+
+			pocket.l();
 		})
 		document.getElementById('map').src = 'https://www.google.com/maps/embed/v1/search?key=AIzaSyAUCCoyp1Af_oTqlIPlR394c1IxX2Da_LU&q=' + keyword;
 		googleSearch.search('news', keyword, function(results) {
@@ -36,8 +44,8 @@ var Main = (function () {
 		})
 
 		facebookSearch.search('images', keyword, function(results) {
-			image.querySelector('img').src = 'https://graph.facebook.com/' + results[0].id + '/picture'; 
-			image.querySelector('a').href = 'https://graph.facebook.com/' + results[0].id + '/picture'; 
+			image.querySelector('img').src = 'https://graph.facebook.com/' + results[0].id + '/picture';
+			image.querySelector('a').href = 'https://graph.facebook.com/' + results[0].id + '/picture';
 			facebookSearch.search('videos', keyword, function(results) {
 				video.querySelector('iframe').src = 'https://www.facebook.com/video/embed?video_id=' + results[0].id;
 				video.querySelector('a').href = 'https://www.facebook.com/video/embed?video_id=' + results[0].id;
@@ -45,7 +53,7 @@ var Main = (function () {
 			})
 		})
 
-		
+
 	}
 	main.init = function(){
 		var ttips = document.querySelectorAll('.tooltips img');
@@ -54,7 +62,7 @@ var Main = (function () {
 		for (var i=0; i<ttips.length; i++) {
 			ttips[i].addEventListener('click', function(e){
 				opened = document.querySelector('.open');
-				
+
 				if(this.parentNode.classList.contains('open'))
 					this.parentNode.classList.remove('open');
 				else
@@ -86,7 +94,7 @@ var Main = (function () {
 		var ifFb = document.getElementById("facebook").checked;
 		var ifDuck = document.getElementById("duckduckgo").checked;
 
-		
+
 		var keyword = document.getElementById("search_keyword").value;
 
 		if(!document.querySelector('.category input:checked'))
@@ -130,7 +138,7 @@ var Main = (function () {
 				case 'map':
 
 			}
-			
+
 		}
 		pocket.l();
 	}
@@ -168,7 +176,7 @@ var Main = (function () {
 						break;
 				}
 			}
-			
+
 		}
 	}
 

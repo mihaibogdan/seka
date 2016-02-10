@@ -12,7 +12,7 @@ body{
 .wrapper{
 	width:100%;
 	min-height: 100%;
-		
+
 	position: relative;
 }
 
@@ -178,6 +178,11 @@ body{
 	line-height: 1.9;
 }
 
+.webResults {
+	float:left;
+	width: 100%;
+	margin-top: 30px;
+}
 
 .small-result{
 	width:50%;
@@ -198,7 +203,7 @@ body{
 }
 
 .small-result.video{
-	
+
 }
 
 .small-result.video iframe{
@@ -206,7 +211,7 @@ body{
 }
 
 .small-result.news{
-	
+
 }
 
 .small-result.news .news-title{
